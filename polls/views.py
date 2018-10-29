@@ -6,9 +6,8 @@ from django.shortcuts import render
 from .models import Question
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {
-        'latest_question_list': latest_question_list,
+        'questions': Question.objects.order_by('-pub_date'),
     }
 #    template = loader.get_template('polls/index.html')
 #    return HttpResponse(template.render(context, request))
